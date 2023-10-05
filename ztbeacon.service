@@ -7,7 +7,7 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
-WorkingDirectory=/opt/spartan
+WorkingDirectory=/opt/ztbeacon
 User=root
 Group=root
 Restart=always
