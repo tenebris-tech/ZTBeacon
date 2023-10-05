@@ -1,0 +1,18 @@
+#
+# Copyright (c) 2023 Tenebris Technologies Inc.
+#
+[Unit]
+Description=ztbeacon
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+WorkingDirectory=/opt/spartan
+User=root
+Group=root
+Restart=always
+RestartSec=1
+ExecStart=/opt/ztbeacon/ztbeacon
+
+[Install]
+WantedBy=multi-user.target
