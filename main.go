@@ -34,13 +34,11 @@ func main() {
 	debug := flag.Bool("debug", false, "enable debug logs")
 	console := flag.Bool("console", false, "force logging to stdout")
 	listen := flag.String("listen", "0.0.0.0:4433", "listen address and port")
+	deny := flag.String("deny", "", "deny IP address access to the server")
 	flag.Parse()
 
-	// Set the global debug flag
-	global.Debug = *debug
-
 	// Create a logger using the slog package
-	logger, err = slog.New("ztbeacon", *logFile, *console)
+	logger, err = slog.New("ztbeacon", *logFile, *console, *debug)
 	if err != nil {
 		fmt.Printf("Error creating logger: %s", err)
 		os.Exit(1)
@@ -86,6 +84,10 @@ func main() {
 	s.TLSCertFile = *certFile
 	s.TLSKeyFile = *keyFile
 	s.Logger = logger
+
+	if *deny != "" {
+		s.AddDeny(*deny)
+	}
 
 	// Start the server
 	err = s.Start()

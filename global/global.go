@@ -7,5 +7,3 @@ package global
 
 const ProductName = "ZTBeacon"
 const ProductVersion = "0.0.1"
-
-var Debug = false

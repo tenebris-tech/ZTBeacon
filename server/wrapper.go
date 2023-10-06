@@ -56,6 +56,8 @@ func (c *Config) Wrapper(destinationHandler http.Handler) http.Handler {
 		uri := strings.Split(r.RequestURI, "?")[0]
 
 		// Log the event
-		c.Logger.Printf("%s %s %s %d %f", src, r.Method, uri, sw.status, duration.Seconds())
+		if c.Debug {
+			c.Logger.Printf("%s %s %s %d %f", src, r.Method, uri, sw.status, duration.Seconds())
+		}
 	})
 }

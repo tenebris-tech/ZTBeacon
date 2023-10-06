@@ -11,15 +11,13 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"ZTBeacon/global"
 )
 
 // Map to allow multiple Loggers to use the same fileHandle
 var logFiles = make(map[string]*os.File)
 
 // New returns a new logger with the given name
-func New(loggerName string, fileName string, console bool) (*log.Logger, error) {
+func New(loggerName string, fileName string, console bool, debug bool) (*log.Logger, error) {
 	var fileHandle *os.File = nil
 
 	if fileName != "" {
@@ -40,18 +38,19 @@ func New(loggerName string, fileName string, console bool) (*log.Logger, error) 
 
 	// Set log flag
 	logFlag := log.Lmsgprefix
-	if global.Debug {
+	if debug {
 		logFlag = logFlag | log.Lshortfile
 	}
 
 	// Create and return the logger
-	return log.New(logWriter{fileHandle: fileHandle, console: console}, "["+loggerName+"] ", logFlag), nil
+	return log.New(logWriter{fileHandle: fileHandle, console: console, debug: debug}, "["+loggerName+"] ", logFlag), nil
 }
 
 // Define custom logWriter to control time stamp format
 type logWriter struct {
 	fileHandle *os.File
 	console    bool
+	debug      bool
 }
 
 func (writer logWriter) Write(bytes []byte) (int, error) {

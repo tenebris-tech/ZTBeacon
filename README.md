@@ -10,12 +10,10 @@ To get started, run `ztbeacon -newcert -console` to create a self signed certifi
 and print the log, which includes the SHA256 hash (fingerprint) required for the Cloudflare ZeroTrust configuration
 to the console.
 
+By default, connection information is not logged to reduce unnecessary log volume. To enable connection logging,
+use the `-debug` option.
+
+If you have a Cloudflare tunnel connected to the network, you may use the `-deny <ip>` option to block access from the
+server handling the tunnel. This will prevent off-network access to the beacon.
+
 See `ztbeacon -help` for additional command line options.
-
-Notes: 
-
-(1) The Cloudflare WARP (ZeroTrust) client does not appear to complete the HTTP request after obtaining the
-certificate, so it is normal not to see any activity in the log.
-
-(2) If you have a Cloudflare tunnel connected to the network, ensure that hosts connecting via the tunnel
-can not reach the ZTBeacon port or they may think they are on the internal network.
