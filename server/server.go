@@ -236,10 +236,8 @@ func (l Listener) Accept() (net.Conn, error) {
 // Handler implements the http.Handler interface
 func (c *Config) Handler(w http.ResponseWriter, _ *http.Request) {
 
-	// Set reply headers to prevent caching
-	w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
-	w.Header().Set("Pragma", "no-cache")
-	w.Header().Set("Expires", "-1")
+	// Set reply header
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 
 	// Send "OK" reply with HTTP 200
 	w.WriteHeader(http.StatusOK)
