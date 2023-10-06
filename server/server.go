@@ -241,8 +241,9 @@ func (c *Config) Handler(w http.ResponseWriter, _ *http.Request) {
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", "-1")
 
-	// Send reply with HTTP 200
+	// Send "OK" reply with HTTP 200
 	w.WriteHeader(http.StatusOK)
+	_, _ = fmt.Fprintf(w, "OK\n")
 }
 
 // Log the certificate hash
