@@ -6,4 +6,4 @@
 package global
 
 const ProductName = "ZTBeacon"
-const ProductVersion = "0.0.1"
+const ProductVersion = "0.0.2"
