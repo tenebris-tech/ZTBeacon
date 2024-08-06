@@ -2,7 +2,7 @@
 
 TLS Beacon for Cloudflare ZeroTrust
 
-Copyright (c) 2023 Tenebris Technologies Inc. See LICENSE for details.
+Copyright (c) 2023-2024 Tenebris Technologies Inc. See LICENSE for details.
 
 This is untested alpha code. Use at your own risk.
 
