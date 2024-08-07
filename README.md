@@ -22,3 +22,8 @@ server handling the tunnel. This will prevent off-network access to the beacon.
 See `ztbeacon -help` for additional command line options.
 
 ztbeacon.service is an example service file for Linux users.
+
+# Building
+To build ZTBeacon, clone the repo, enter the directory, and type "go build"
+
+We recommend using the latest version of Go, available at https://go.dev/dl/
