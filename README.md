@@ -20,3 +20,5 @@ If you have a Cloudflare tunnel connected to the network, you may use the `-deny
 server handling the tunnel. This will prevent off-network access to the beacon.
 
 See `ztbeacon -help` for additional command line options.
+
+ztbeacon.service is an example service file for Linux users.
