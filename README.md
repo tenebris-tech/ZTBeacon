@@ -9,14 +9,14 @@ No warrantee expressed or implied. Use at your own risk.
 This is intended as an easier and more reliable alternative to manual certificate creation and writing you own
 Python server as suggested in https://blog.cloudflare.com/location-aware-warp
 
-## Building
+### Building
 To build ZTBeacon, clone the repo, enter the directory, and type "go build"
 
 We recommend using the latest version of Go, available at https://go.dev/dl/
 
 ztbeacon.service is an example service file for Linux users.
 
-## Getting started
+### Getting started
 To get started, run `ztbeacon -newcert -console` to create a self signed certificate and key in the current directory
 and print the log, which includes the SHA256 hash (fingerprint) required for the Cloudflare ZeroTrust configuration,
 to the console.
