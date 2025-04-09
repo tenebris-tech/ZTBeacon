@@ -1,5 +1,7 @@
 module ZTBeacon
 
-go 1.21.1
+go 1.23.0
 
-require golang.org/x/net v0.34.0
+toolchain go1.24.2
+
+require golang.org/x/net v0.39.0
